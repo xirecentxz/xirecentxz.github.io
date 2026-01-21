@@ -82,3 +82,14 @@ h2 {
     display: inline-block;
     margin: 2px;
 }
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--secondary);
+    display: block;
+    margin: -110px auto 20px; /* Ini untuk efek foto melayang di atas card */
+    background: white;
+}
