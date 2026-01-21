@@ -2,52 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Experience | Detailed History</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; color: #333; background-color: #f4f7f6; padding: 40px 20px; }
-        .content { max-width: 800px; margin: auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        h2 { color: #2c3e50; border-bottom: 3px solid #e67e22; padding-bottom: 10px; margin-bottom: 30px; }
-        .job { margin-bottom: 40px; border-left: 5px solid #e67e22; padding-left: 20px; }
-        .job h3 { margin: 0; color: #e67e22; font-size: 1.4rem; }
-        .job-meta { font-style: italic; color: #7f8c8d; display: block; margin-bottom: 15px; font-size: 0.9rem; }
-        ul { padding-left: 20px; margin-top: 10px; }
-        li { margin-bottom: 10px; }
-        .back-btn { display: inline-block; margin-bottom: 30px; text-decoration: none; color: #3498db; font-weight: bold; transition: 0.3s; }
-        .back-btn:hover { color: #2c3e50; }
-        strong { color: #2c3e50; }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>Experience</title>
 </head>
 <body>
-    <div class="content">
-        <a href="index.html" class="back-btn">← Back to Portfolio Home</a>
-        
-        <h2>Professional Journey</h2>
-
-        <div class="job">
-            <h3>IT Support Specialist</h3>
-            <span class="job-meta">Current Position | Monday - Saturday (08:00 - 17:00)</span>
-            <ul>
-                <li><strong>Infrastructure Management:</strong> Actively managing server stability and performance for enterprise systems, specifically <strong>Microsoft Dynamics AX 2012</strong>.</li>
-                <li><strong>Technical Troubleshooting:</strong> Providing comprehensive technical support (L1/L2) for daily business operations.</li>
-                <li><strong>Network Maintenance:</strong> Troubleshooting and optimizing network infrastructure, including subdomain and image hosting management.</li>
-            </ul>
-        </div>
-
-        <div class="job">
-            <h3>Technical Specialist (Field)</h3>
-            <span class="job-meta">3-Year Tenure | Banking & Digital Printing Sector</span>
-            <ul>
-                <li><strong>Banking Equipment Specialist:</strong> Performed preventative maintenance and hardware repairs on critical banking terminals.</li>
-                <li><strong>Digital Printing Hardware:</strong> Provided on-site technical support and repair for high-scale digital printing machinery.</li>
-                <li><strong>Crisis Management:</strong> Ensured technical reliability and minimized downtime in high-pressure field environments.</li>
-            </ul>
-        </div>
-        
-        <div class="job">
-            <h3>Independent Courier & Technician</h3>
-            <span class="job-meta">Previous Experience</span>
-            <p>Started technical career as an independent courier and technician, building foundational skills in logistics and field-based technical problem solving.</p>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Home</a>
+        <div class="card">
+            <h2>Work History</h2>
+            <div style="border-left: 4px solid var(--accent); padding-left: 20px; margin-top: 20px;">
+                <h3 style="margin:0;">IT Support Specialist</h3>
+                <small>Current Position | Mon-Sat (08:00-17:00)</small>
+                <ul>
+                    <li>Infrastructure management and Dynamics AX 2012 server stability.</li>
+                    <li>Enterprise IT technical support and network maintenance.</li>
+                </ul>
+            </div>
+            <div style="border-left: 4px solid var(--secondary); padding-left: 20px; margin-top: 20px;">
+                <h3 style="margin:0;">Technical Specialist (Field)</h3>
+                <small>3 Years Experience</small>
+                <ul>
+                    <li>Specialized in banking terminals (ATM/CRM) and digital printer hardware.</li>
+                    <li>Ensured hardware reliability in fast-paced field environments.</li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
