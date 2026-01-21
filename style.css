@@ -100,3 +100,9 @@ footer {
     color: #888;
     font-size: 0.9rem;
 }
+
+/* Pastikan header selalu tampil di atas */
+#header-placeholder {
+    width: 100%;
+    display: block;
+}
