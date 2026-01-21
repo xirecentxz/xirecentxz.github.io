@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Roulette Game</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; background: #2c3e50; color: white; margin: 0; padding: 20px; }
+        .container { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; max-width: 1000px; }
+        .input-section { background: #34495e; padding: 20px; border-radius: 10px; width: 300px; }
+        input { width: 80%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: none; }
+        button { padding: 10px 20px; cursor: pointer; border-radius: 5px; border: none; font-weight: bold; transition: 0.3s; }
+        .btn-add { background: #27ae60; color: white; }
+        .btn-spin { background: #e67e22; color: white; width: 100%; font-size: 1.2rem; margin-top: 10px; }
+        .btn-spin:disabled { background: #7f8c8d; cursor: not-allowed; }
+        #wheel { border: 5px solid #ecf0f1; border-radius: 50%; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        .names-list { margin-top: 15px; font-size: 0.9rem; max-height: 200px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+
+    <h1>Web Roulette Game</h1>
+    
+    <div class="container">
+        <div class="input-section">
+            <h3>Add Players (Max 20)</h3>
+            <input type="text" id="nameInput" placeholder="Enter name...">
+            <button class="btn-add" onclick="addName()">Add</button>
+            <div id="counter">Players: 0/20</div>
+            <div class="names-list" id="namesList"></div>
+            <button class="btn-spin" id="spinBtn" onclick="spin()" disabled>SPIN!</button>
+        </div>
+
+        <div>
+            <canvas id="wheel" width="400" height="400"></canvas>
+            <h2 id="winnerDisplay" style="text-align: center; color: #f1c40f;"></h2>
+        </div>
+    </div>
+
+    <script>
+        const names = [];
+        const canvas = document.getElementById('wheel');
+        const ctx = canvas.getContext('2d');
+        const spinBtn = document.getElementById('spinBtn');
+        let currentRotation = 0;
+
+        function addName() {
+            const input = document.getElementById('nameInput');
+            let name = input.value.trim();
+            
+            if (names.length >= 20) return alert("Maximum 20 names!");
+            
+            if (name === "") {
+                name = "Player " + (names.length + 1);
+            }
+
+            names.push(name);
+            input.value = "";
+            updateUI();
+            drawWheel();
+        }
+
+        function updateUI() {
+            document.getElementById('counter').innerText = `Players: ${names.length}/20`;
+            document.getElementById('namesList').innerText = names.join(", ");
+            spinBtn.disabled = names.length < 2;
+        }
+
+        function drawWheel() {
+            const numSegments = names.length || 1;
+            const angle = (2 * Math.PI) / numSegments;
+            const colors = ["#e74c3c", "#3498db", "#f1c40f", "#9b59b6", "#1abc9c", "#e67e22"];
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < numSegments; i++) {
+                ctx.beginPath();
+                ctx.fillStyle = colors[i % colors.length];
+                ctx.moveTo(200, 200);
+                ctx.arc(200, 200, 200, i * angle, (i + 1) * angle);
+                ctx.fill();
+
+                // Draw Text
+                ctx.save();
+                ctx.translate(200, 200);
+                ctx.rotate(i * angle + angle / 2);
+                ctx.fillStyle = "white";
+                ctx.font = "bold 14px Arial";
+                ctx.fillText(names[i] || "Add Names", 70, 5);
+                ctx.restore();
+            }
+        }
+
+        function spin() {
+            const extraDegrees = Math.floor(Math.random() * 360) + 1440; // min 4 full spins
+            currentRotation += extraDegrees;
+            canvas.style.transition = "transform 4s cubic-bezier(0.15, 0, 0.15, 1)";
+            canvas.style.transform = `rotate(${currentRotation}deg)`;
+
+            spinBtn.disabled = true;
+            setTimeout(() => {
+                spinBtn.disabled = false;
+                const actualDeg = currentRotation % 360;
+                const segmentAngle = 360 / names.length;
+                const winningIndex = Math.floor((360 - actualDeg) / segmentAngle) % names.length;
+                document.getElementById('winnerDisplay').innerText = "Winner: " + names[winningIndex] + "!";
+            }, 4000);
+        }
+
+        drawWheel(); // Initial draw
+    </script>
+</body>
+</html>
