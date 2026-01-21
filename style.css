@@ -1,3 +1,7 @@
+/* 1. IMPORT FONT SELALU DI PALING ATAS */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+/* 2. VARIABLE WARNA */
 :root {
     --bg: #0b0e14;
     --card: #161b22;
@@ -6,6 +10,7 @@
     --text-dim: #9ca3af;
 }
 
+/* 3. SETTING BODY */
 body {
     background-color: var(--bg);
     color: var(--text);
@@ -16,8 +21,10 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 20px;
+    letter-spacing: -0.01em; /* Tambahan agar teks terlihat lebih modern */
 }
 
+/* 4. GRID SYSTEM */
 .bento-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -27,69 +34,70 @@ body {
     width: 100%;
 }
 
+/* 5. CARD DESIGN */
 .bento-item {
     background: var(--card);
     border: 1px solid #30363d;
-    border-radius: 24px;
+    border-radius: 28px; /* Lebih bulat agar terlihat lebih modern */
     padding: 24px;
-    transition: 0.3s ease;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .bento-item:hover {
     border-color: var(--accent);
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.1);
 }
 
+/* 6. PROFILE SECTION */
 .profile-box { grid-column: span 2; }
 .profile-header { display: flex; align-items: center; gap: 20px; margin-bottom: 15px; }
-.profile-img { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--accent); }
 
-.badge { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+.profile-img { 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    border: 3px solid var(--accent);
+    object-fit: cover; /* Mencegah foto penyet */
+    object-position: center;
+}
 
-h3 { color: var(--accent); margin-top: 0; font-size: 1.1rem; }
-p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.5; }
+/* 7. TYPOGRAPHY & BUTTONS */
+.badge { 
+    background: rgba(56, 189, 248, 0.1); 
+    color: var(--accent); 
+    padding: 4px 12px; 
+    border-radius: 20px; 
+    font-size: 0.8rem; 
+    font-weight: 600; 
+}
+
+h3 { color: var(--accent); margin-top: 0; font-size: 1.1rem; font-weight: 800; }
+p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; }
 
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-.tag { background: #21262d; padding: 6px 12px; border-radius: 10px; font-size: 0.75rem; border: 1px solid #30363d; }
+.tag { background: #21262d; padding: 6px 12px; border-radius: 10px; font-size: 0.75rem; border: 1px solid #30363d; color: var(--text-dim); }
 
 .btn-modern {
     display: inline-block;
     margin-top: 15px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     background: var(--accent);
     color: #0b0e14;
     text-decoration: none;
-    border-radius: 12px;
-    font-weight: 700;
+    border-radius: 14px;
+    font-weight: 800;
     font-size: 0.9rem;
+    transition: 0.2s;
 }
 
+.btn-modern:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* 8. RESPONSIVE */
 @media (max-width: 768px) {
     .bento-container { grid-template-columns: 1fr; }
     .profile-box { grid-column: span 1; }
-}
-
-/* Import Font Modern */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
-
-body {
-    background-color: #0b0e14;
-    color: #ffffff;
-    /* Ganti font ke Plus Jakarta Sans */
-    font-family: 'Plus Jakarta Sans', sans-serif; 
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-}
-
-.profile-img {
-    width: 100px;  /* Atur ukuran lebar */
-    height: 100px; /* Atur ukuran tinggi yang sama */
-    border-radius: 50%; /* Membuat jadi bulat */
-    object-fit: cover;  /* KUNCI: Agar foto tidak penyet */
-    object-position: center; /* Fokus di tengah foto */
-    border: 3px solid #38bdf8; /* Warna aksen biru */
 }
