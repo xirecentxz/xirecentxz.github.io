@@ -6,6 +6,7 @@
     <title>Technical Skills</title>
 </head>
 <body>
+    <div id="header-placeholder"></div>
     <div class="container">
         <a href="../index.html" class="back-btn">← Back to Home</a>
         <div class="card">
@@ -25,5 +26,12 @@
             <span class="tag">JavaScript</span>
         </div>
     </div>
+        <script>
+        fetch(window.location.pathname.includes('pages/') ? '../header.html' : 'header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 </body>
 </html>
