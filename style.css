@@ -5,7 +5,7 @@
     --card-bg: rgba(30, 41, 59, 0.4);
     --accent: #38bdf8;
     --text-white: #f8fafc;
-    --text-dim: #e2e8f0; /* Ditingkatkan agar lebih kontras & jelas */
+    --text-dim: #e2e8f0;
 }
 
 body {
@@ -15,7 +15,7 @@ body {
     padding: 40px 20px;
     line-height: 1.6;
     background-color: var(--bg-dark);
-    /* Background Modern 2026: Animasi Mesh Gradient */
+    /* Modern 2026 Mesh Gradient */
     background-image: 
         radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
         radial-gradient(at 100% 0%, rgba(30, 64, 175, 0.1) 0px, transparent 50%),
@@ -28,7 +28,7 @@ body {
     margin: 0 auto;
 }
 
-/* Profile Header - Glassmorphism */
+/* Profile Header - Glassmorphism & Responsive Fix */
 .profile-header {
     display: flex;
     align-items: center;
@@ -47,9 +47,8 @@ body {
     height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    /* Menghapus garis tepi biru sesuai permintaan */
-    border: none; 
     box-shadow: 0 0 40px rgba(56, 189, 248, 0.1);
+    flex-shrink: 0;
 }
 
 .header-text h1 {
@@ -58,12 +57,12 @@ body {
     margin: 0 0 10px 0;
 }
 
-.summary {
-    color: var(--text-dim);
-    font-size: 1rem;
+.section-title {
+    font-weight: 800; 
+    margin-bottom: 30px;
 }
 
-/* Grids */
+/* Grids Layout */
 .skills-grid, .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -71,7 +70,7 @@ body {
     margin-bottom: 50px;
 }
 
-/* Card Styling - SAMA UNTUK SKILL & PROJECT */
+/* Glass Cards Styling */
 .skill-card, .project-card {
     background: var(--card-bg);
     backdrop-filter: blur(8px);
@@ -83,24 +82,17 @@ body {
     flex-direction: column;
 }
 
-/* Animasi Hover Seragam */
 .skill-card:hover, .project-card:hover {
-    background: rgba(51, 65, 85, 0.6); /* Biru agak tua saat hover */
-    border-color: var(--accent); /* Garis tepi muncul saat hover */
+    background: rgba(51, 65, 85, 0.6);
+    border-color: var(--accent);
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.skill-card h3, .project-card h3 {
-    margin: 0 0 20px 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-}
-
-/* Perbaikan Tag Agar Rapi & Tidak Menumpuk */
+/* Tags Styling */
 .tags {
     display: flex;
-    flex-wrap: wrap; /* KUNCI: Agar teks turun jika tidak muat */
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -114,7 +106,7 @@ body {
     font-weight: 600;
 }
 
-/* Project Specifics */
+/* Project Badge & Link */
 .project-badge {
     font-size: 0.75rem;
     color: var(--accent);
@@ -136,6 +128,44 @@ body {
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
+    border-bottom: 2px solid var(--accent);
+    align-self: flex-start;
+    padding-bottom: 4px;
+    transition: 0.3s;
+}
+
+.project-link:hover {
+    color: var(--accent);
+}
+
+/* MOBILE RESPONSIVE QUERIES */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 15px;
+    }
+
+    .profile-header {
+        flex-direction: column; /* Ini yang bikin foto & teks stacked di HP */
+        text-align: center;
+        padding: 30px 20px;
+        gap: 20px;
+        width: 100%; /* Pastikan selebar card bawah */
+        box-sizing: border-box;
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .header-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .skills-grid, .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
     border-bottom: 2px solid var(--accent);
     align-self: flex-start;
     padding-bottom: 4px;
