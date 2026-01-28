@@ -1,27 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
 
 :root {
-    /* Skema Warna 2026: Deep Navy & Cyan Glow */
-    --bg-dark: #020617; 
-    --card-normal: rgba(30, 41, 59, 0.4); /* Transparan untuk efek kaca */
-    --card-hover: rgba(51, 65, 85, 0.6);
-    --accent-blue: #38bdf8;
+    --bg-dark: #030712;
+    --card-bg: rgba(30, 41, 59, 0.4);
+    --accent: #38bdf8;
     --text-white: #f8fafc;
-    --text-dim: #94a3b8;
+    --text-dim: #e2e8f0; /* Ditingkatkan agar lebih kontras & jelas */
 }
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    /* Background Modern 2026: Mesh Gradient halus */
-    background-color: var(--bg-dark);
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(30, 64, 175, 0.15) 0px, transparent 50%);
-    background-attachment: fixed;
     color: var(--text-white);
     margin: 0;
     padding: 40px 20px;
     line-height: 1.6;
+    background-color: var(--bg-dark);
+    /* Background Modern 2026: Animasi Mesh Gradient */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(30, 64, 175, 0.1) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(15, 23, 42, 1) 0px, transparent 50%);
+    background-attachment: fixed;
 }
 
 .container {
@@ -29,83 +28,120 @@ body {
     margin: 0 auto;
 }
 
-/* Profile Header - Glassmorphism Effect */
+/* Profile Header - Glassmorphism */
 .profile-header {
     display: flex;
     align-items: center;
     gap: 30px;
-    background: rgba(30, 41, 59, 0.3);
-    backdrop-filter: blur(12px); /* Efek blur kaca */
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 40px;
-    border-radius: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     margin-bottom: 50px;
-    transition: 0.3s;
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    border: none;
-    box-shadow: 0 0 30px rgba(56, 189, 248, 0.2); /* Glow halus ganti garis */
+    /* Menghapus garis tepi biru sesuai permintaan */
+    border: none; 
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.1);
+}
+
+.header-text h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 10px 0;
 }
 
 .summary {
-    color: #e2e8f0;
+    color: var(--text-dim);
     font-size: 1rem;
-    line-height: 1.7;
 }
 
 /* Grids */
 .skills-grid, .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+    gap: 25px;
     margin-bottom: 50px;
 }
 
-/* Card Styling Modern */
+/* Card Styling - SAMA UNTUK SKILL & PROJECT */
 .skill-card, .project-card {
-    background: var(--card-normal);
+    background: var(--card-bg);
     backdrop-filter: blur(8px);
     padding: 30px;
     border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-decoration: none;
-    color: inherit;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Hover Effect: Border glow & Slight scale */
+/* Animasi Hover Seragam */
 .skill-card:hover, .project-card:hover {
-    background: var(--card-hover);
-    border-color: rgba(56, 189, 248, 0.4);
-    transform: translateY(-10px) scale(1.02);
+    background: rgba(51, 65, 85, 0.6); /* Biru agak tua saat hover */
+    border-color: var(--accent); /* Garis tepi muncul saat hover */
+    transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
+.skill-card h3, .project-card h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Perbaikan Tag Agar Rapi & Tidak Menumpuk */
+.tags {
+    display: flex;
+    flex-wrap: wrap; /* KUNCI: Agar teks turun jika tidak muat */
+    gap: 10px;
+}
+
 .tag {
-    background: rgba(56, 189, 248, 0.1);
-    padding: 6px 14px;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 8px 14px;
     border-radius: 12px;
-    font-size: 0.75rem;
-    color: var(--accent-blue);
-    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--accent);
     border: 1px solid rgba(56, 189, 248, 0.2);
+    font-weight: 600;
+}
+
+/* Project Specifics */
+.project-badge {
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    flex-grow: 1;
 }
 
 .project-link {
-    display: inline-block;
-    margin-top: 15px;
-    color: var(--accent-blue);
-    font-weight: 700;
+    color: var(--text-white);
     text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-bottom: 2px solid var(--accent);
+    align-self: flex-start;
+    padding-bottom: 4px;
     transition: 0.3s;
 }
 
 .project-link:hover {
-    letter-spacing: 1px;
+    color: var(--accent);
 }
