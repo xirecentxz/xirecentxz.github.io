@@ -1,4 +1,4 @@
-# my-portfolio
+# My-Portfolio
 # IT Support & Technical Specialist Portfolio
 
 Welcome to my professional repository. This project serves as my digital resume and a showcase for the web development projects I am currently building.
