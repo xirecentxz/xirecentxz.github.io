@@ -3,9 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Adhimukti Yusuf — IT Professional & Creative Technologist. Expert in infrastructure, automation, and web development.">
-  <meta name="keywords" content="IT Professional, Infrastructure, Web Developer, JavaScript, Python, Google Apps Script, Sidoarjo">
-  <title>Adhimukti Yusuf | IT Professional & Creative Technologist</title>
+  <meta name="description" content="Adhimukti Yusuf — IT Support Specialist & Web Developer. Expert in infrastructure, business automation, and web technology.">
+  <meta name="keywords" content="IT Support, Infrastructure, Web Developer, JavaScript, Python, Google Apps Script, Surabaya, Sidoarjo">
+  <title>Adhimukti Yusuf | IT Support & Web Developer</title>
+
+  <!-- ===== FAVICON ===== -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23090b10'/%3E%3Ctext x='50' y='68' font-family='Syne, sans-serif' font-size='52' font-weight='800' text-anchor='middle' fill='%2338bdf8'%3EAY%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23090b10'/%3E%3Ctext x='50' y='68' font-family='Syne, sans-serif' font-size='52' font-weight='800' text-anchor='middle' fill='%2338bdf8'%3EAY%3C/text%3E%3C/svg%3E">
+
+  <!-- ===== OPEN GRAPH TAGS ===== -->
+  <meta property="og:title" content="Adhimukti Yusuf | IT Support &amp; Web Developer" />
+  <meta property="og:description" content="IT Professional &amp; Automation Builder from Surabaya, Indonesia. Specializing in infrastructure, hardware diagnostics, and workflow automation." />
+  <meta property="og:url" content="https://adhimukti.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://ui-avatars.com/api/?name=Adhimukti+Yusuf&size=600&background=38bdf8&color=fff&bold=true" />
+  <meta property="og:image:width" content="600" />
+  <meta property="og:image:height" content="600" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Adhimukti Yusuf | IT Support &amp; Web Developer" />
+  <meta name="twitter:description" content="IT Professional &amp; Automation Builder from Surabaya, Indonesia." />
+  <meta name="twitter:image" content="https://ui-avatars.com/api/?name=Adhimukti+Yusuf&size=600&background=38bdf8&color=fff&bold=true" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,8 +64,8 @@
       --accent-2: #6366f1;
       --accent-glow: rgba(2,132,199,0.12);
       --text-primary: #0d1b2a;
-      --text-secondary: #475569;
-      --text-muted: #94a3b8;
+      --text-secondary: #334155;  /* IMPROVED CONTRAST */
+      --text-muted: #64748b;     /* IMPROVED CONTRAST */
     }
 
     /* ===== RESET ===== */
@@ -63,6 +82,13 @@
     }
     a { text-decoration: none; color: inherit; transition: color var(--transition); }
     img { max-width: 100%; display: block; }
+
+    /* ===== ACCESSIBILITY - FOCUS VISIBLE ===== */
+    *:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
 
     /* ===== CUSTOM CURSOR ===== */
     #cursor-dot {
@@ -373,7 +399,6 @@
       border: 3px solid var(--border-glass);
       box-shadow: 0 0 60px var(--accent-glow);
     }
-    /* Fallback if no image */
     .hero-avatar-placeholder {
       width: 260px; height: 260px;
       border-radius: 50%;
@@ -441,16 +466,18 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.25);
     }
 
-    /* ===== ABOUT ===== */
+    /* ===== ABOUT & TIMELINE ===== */
     #about { background: linear-gradient(180deg, transparent, rgba(56,189,248,0.03), transparent); }
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 64px;
-      align-items: center;
+      align-items: start;
     }
     .about-img-wrap {
       position: relative;
+      position: sticky;
+      top: 100px;
     }
     .about-img-frame {
       border-radius: var(--radius-lg);
@@ -486,7 +513,7 @@
     }
     .about-stat-label { font-size: 0.75rem; color: var(--text-secondary); }
     .about-text p { color: var(--text-secondary); margin-bottom: 20px; line-height: 1.85; }
-    .about-highlights { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .about-highlights { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; margin-bottom: 40px; }
     .highlight-chip {
       background: var(--bg-card);
       border: 1px solid var(--border-glass);
@@ -498,8 +525,50 @@
     }
     .highlight-chip:hover { border-color: var(--accent); color: var(--accent); }
 
+    /* Experience Timeline */
+    .timeline {
+      margin-top: 30px;
+      position: relative;
+      border-left: 2px solid var(--border-glass);
+      padding-left: 20px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -27px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg-primary);
+    }
+    .timeline-date {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .timeline-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 4px 0;
+    }
+    .timeline-company {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .timeline-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
     /* ===== SKILLS ===== */
-    #skills { }
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -551,7 +620,6 @@
     .skill-bar-fill.animated { width: var(--target-width); }
 
     /* ===== PROJECTS ===== */
-    #projects { }
     .project-filter {
       display: flex; gap: 10px; flex-wrap: wrap;
       margin: 40px 0 32px;
@@ -625,8 +693,7 @@
       border: 1px solid;
     }
     .tag-auto { color: var(--accent); border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.08); }
-    .tag-game { color: #a78bfa; border-color: rgba(167,139,250,0.3); background: rgba(167,139,250,0.08); }
-    .tag-exp { color: #34d399; border-color: rgba(52,211,153,0.3); background: rgba(52,211,153,0.08); }
+    .tag-web { color: #a78bfa; border-color: rgba(167,139,250,0.3); background: rgba(167,139,250,0.08); }
     .project-title-new {
       font-family: var(--font-display);
       font-size: 1.05rem;
@@ -657,7 +724,6 @@
     .project-card-new:hover .project-arrow { transform: translateX(4px); }
 
     /* ===== TESTIMONIALS ===== */
-    #testimonials { }
     .testimonial-track-wrap { overflow: hidden; position: relative; margin-top: 48px; }
     .testimonial-track {
       display: flex; gap: 24px;
@@ -701,7 +767,6 @@
     .testimonial-role { font-size: 0.78rem; color: var(--text-muted); }
 
     /* ===== CONTACT ===== */
-    #contact { }
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -806,6 +871,7 @@
       .hero-avatar-wrap { order: -1; }
       .hero-desc { max-width: 100%; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-img-wrap { position: relative; top: 0; }
       .skills-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-grid { grid-template-columns: 1fr; }
     }
@@ -845,10 +911,9 @@
   <div class="container nav-inner">
     <a href="#" class="nav-brand">AY.</a>
     <div class="nav-links">
-      <a href="#about">About</a>
+      <a href="#about">About & Experience</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
       <a href="https://github.com/xirecentxz" target="_blank" class="nav-cta">GitHub ↗</a>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
@@ -864,10 +929,9 @@
 
 <!-- Mobile Nav -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="#about">About</a>
+  <a href="#about">About & Experience</a>
   <a href="#skills">Skills</a>
   <a href="#projects">Projects</a>
-  <a href="#testimonials">Testimonials</a>
   <a href="#contact">Contact</a>
   <a href="https://github.com/xirecentxz" target="_blank" style="color:var(--accent)">GitHub ↗</a>
 </div>
@@ -880,7 +944,7 @@
       <div class="hero-content">
         <div class="hero-tag">
           <span class="dot"></span>
-          Available for opportunities
+          Available for Opportunities
         </div>
         <h1 class="hero-name">
           I'm <span class="gradient">Adhimukti</span><br>Yusuf
@@ -889,7 +953,7 @@
           <span id="typed"></span>
         </div>
         <p class="hero-desc">
-          IT Professional with a passion for building infrastructure that doesn't break at 3 AM — and web solutions that make people's lives noticeably easier.
+          IT Professional & Automation Builder. Specializing in keeping systems operational, resolving complex hardware-network bottlenecks, and building efficient business automation pipelines.
         </p>
         <div class="hero-cta-group">
           <a href="#projects" class="btn-primary">See My Work</a>
@@ -897,70 +961,117 @@
         </div>
       </div>
 
-      <!-- Avatar -->
+      <!-- Avatar - Using UI Avatars -->
       <div class="hero-avatar-wrap">
         <div class="hero-avatar-bg"></div>
         <div class="hero-avatar-ring"></div>
-        <!-- Try loading real image, fallback to initials -->
-        <img src="assets/profile.jpeg" alt="Adhimukti Yusuf"
+        <img src="https://ui-avatars.com/api/?name=Adhimukti+Yusuf&size=260&background=38bdf8&color=fff&bold=true&font-size=0.5" 
+             alt="Adhimukti Yusuf" 
              class="hero-avatar"
              onerror="this.style.display='none';document.getElementById('hero-fallback').style.display='flex'">
         <div class="hero-avatar-placeholder" id="hero-fallback" style="display:none;">AY</div>
         <!-- Floating badges -->
         <div class="hero-badge hero-badge-1">
-          <span class="badge-icon">🛠️</span>
-          <span>Infrastructure Expert</span>
+          <span class="badge-icon">🖥️</span>
+          <span>IT Infrastructure</span>
         </div>
         <div class="hero-badge hero-badge-2">
           <span class="badge-icon">⚡</span>
-          <span>Automation Builder</span>
+          <span>Skilled Script Automator</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
+<!-- ===== ABOUT & EXPERIENCE ===== -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
       <!-- Image side -->
       <div class="about-img-wrap reveal">
         <div class="about-img-frame">
-          <img src="assets/profile.jpeg" alt="Adhimukti Yusuf" style="width:100%;height:100%;object-fit:cover;"
+          <img src="https://ui-avatars.com/api/?name=Adhimukti+Yusuf&size=600&background=38bdf8&color=fff&bold=true&font-size=0.4" 
+               alt="Adhimukti Yusuf" 
+               style="width:100%;height:100%;object-fit:cover;"
                onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
           <div class="about-img-placeholder" style="display:none;">💻</div>
         </div>
         <div class="about-stat-pill left glass-card">
-          <div class="about-stat-num">3+</div>
+          <div class="about-stat-num">5+</div>
           <div class="about-stat-label">Years Experience</div>
         </div>
         <div class="about-stat-pill right glass-card">
-          <div class="about-stat-num">10+</div>
-          <div class="about-stat-label">Projects Built</div>
+          <div class="about-stat-num">15+</div>
+          <div class="about-stat-label">Systems Maintained</div>
         </div>
       </div>
 
-      <!-- Text side -->
+      <!-- Text & Timeline side -->
       <div class="about-text">
         <div class="reveal">
           <div class="section-label">About Me</div>
-          <h2 class="section-title">The person behind the terminal</h2>
+          <h2 class="section-title">Bridging Infrastructure & Automation</h2>
           <div class="divider" style="margin-bottom:28px;"></div>
         </div>
         <p class="reveal reveal-delay-1">
-          I'm an IT Professional based in Sidoarjo, East Java, who thrives at the intersection of infrastructure reliability and creative problem-solving. My days are spent keeping systems alive, and my evenings are spent building things that shouldn't need keeping alive.
+          I am an IT Professional with comprehensive experience spanning since 2017, smoothly transitioning from a technical hardware background into core IT Support infrastructure. I excel at integrating day-to-day operational stability with custom automation scripts (JavaScript, Google Apps Script) to drive workflow efficiency.
         </p>
-        <p class="reveal reveal-delay-2">
-          From architecting helpdesk ticketing pipelines with Google Sheets API to crafting RPG game logic in vanilla JavaScript — I bring the same obsessive attention to detail to every layer of the stack.
-        </p>
-        <div class="about-highlights reveal reveal-delay-3">
-          <span class="highlight-chip">🌐 Network Admin</span>
-          <span class="highlight-chip">🤖 Automation</span>
-          <span class="highlight-chip">📊 Data Processing</span>
-          <span class="highlight-chip">🎮 Game Logic</span>
-          <span class="highlight-chip">☁️ Remote Support</span>
-          <span class="highlight-chip">📝 Tech Docs</span>
+        
+        <div class="about-highlights reveal reveal-delay-2">
+          <span class="highlight-chip">🌐 Infrastructure Management</span>
+          <span class="highlight-chip">🤖 Workflow Automation</span>
+          <span class="highlight-chip">🛠️ Hardware & POS Diagnostics</span>
+          <span class="highlight-chip">💻 Front-End Development</span>
+          <span class="highlight-chip">📊 Data Discrepancy Analysis</span>
+        </div>
+
+        <!-- Experience Timeline -->
+        <div class="reveal reveal-delay-3" style="margin-top: 40px;">
+          <div class="section-label">Career Journey</div>
+          <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; margin-bottom: 20px;">Professional History</h3>
+          
+          <div class="timeline">
+            <!-- Job 1 -->
+            <div class="timeline-item">
+              <div class="timeline-date">June 2021 – Present</div>
+              <div class="timeline-title">IT Support</div>
+              <div class="timeline-company">Igor's Pastry — Surabaya, Indonesia</div>
+              <p class="timeline-desc">Managing network infrastructure, monitoring outlet servers and CCTV grids. Performing extensive troubleshooting for POS machines, PCs, and peripherals, alongside running automated marketing blasts and executing database backups.</p>
+            </div>
+            <!-- Job 2 -->
+            <div class="timeline-item">
+              <div class="timeline-date">2020 – 2021</div>
+              <div class="timeline-title">Freelance IT & Web Developer</div>
+              <div class="timeline-company">Self-Employed</div>
+              <p class="timeline-desc">Designed and deployed internet cafe network architectures from scratch. Provided advanced structural repairs for client laptops and printers, while constructing production-ready front-end web layouts using HTML and PHP.</p>
+            </div>
+            <!-- Job 3 -->
+            <div class="timeline-item">
+              <div class="timeline-date">January 2019 – December 2019</div>
+              <div class="timeline-title">Hardware Technician</div>
+              <div class="timeline-company">Putra Mutiara Jaya</div>
+              <p class="timeline-desc">Handled physical hardware alignment deployments, heavy technical system maintenance, and critical troubleshooting cycles on site.</p>
+            </div>
+            <!-- Job 4 -->
+            <div class="timeline-item">
+              <div class="timeline-date">January 2017 – July 2018</div>
+              <div class="timeline-title">Technical Support Specialist</div>
+              <div class="timeline-company">PT G&D Indonesia</div>
+              <p class="timeline-desc">Conducted high-precision field technical support, device repairs, and diagnostic logging routines for banking money-sorting infrastructure.</p>
+            </div>
+          </div>
+
+          <!-- Education Section inside Journey -->
+          <div class="section-label" style="margin-top: 40px;">Education</div>
+          <div class="timeline" style="border-left-color: transparent; padding-left: 0;">
+            <div class="timeline-item" style="padding-left: 20px; border-left: 2px solid var(--border-glass);">
+              <div class="timeline-date">Class of 2016</div>
+              <div class="timeline-title">D3 - Elektro Industri</div>
+              <div class="timeline-company">Politeknik Elektronika Negeri Surabaya (PENS)</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -972,63 +1083,59 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label">Expertise</div>
-      <h2 class="section-title">What I bring to the table</h2>
+      <h2 class="section-title">Technical Capabilities</h2>
       <div class="divider"></div>
     </div>
     <div class="skills-grid">
       <!-- Infrastructure -->
       <div class="glass-card skill-card-new reveal reveal-delay-1">
         <div class="skill-icon">🖥️</div>
-        <div class="skill-card-title">Infrastructure</div>
+        <div class="skill-card-title">Infrastructure & Hardware</div>
         <div class="skill-item">
-          <div class="skill-item-top"><span class="skill-item-name">Server Admin & Networking</span><span class="skill-item-pct">90%</span></div>
+          <div class="skill-item-top"><span class="skill-item-name">Network & Server Admin</span><span class="skill-item-pct">90%</span></div>
           <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:90%"></div></div>
         </div>
         <div class="skill-item">
-          <div class="skill-item-top"><span class="skill-item-name">Technical Support</span><span class="skill-item-pct">95%</span></div>
+          <div class="skill-item-top"><span class="skill-item-name">Hardware & POS Diagnostics</span><span class="skill-item-pct">95%</span></div>
           <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:95%"></div></div>
         </div>
         <div class="skill-item">
-          <div class="skill-item-top"><span class="skill-item-name">Remote Support Tools</span><span class="skill-item-pct">85%</span></div>
-          <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:85%"></div></div>
+          <div class="skill-item-top"><span class="skill-item-name">CCTV & Network Deployment</span><span class="skill-item-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:88%"></div></div>
         </div>
       </div>
-      <!-- Development -->
+      <!-- Programming -->
       <div class="glass-card skill-card-new reveal reveal-delay-2">
         <div class="skill-icon">💻</div>
-        <div class="skill-card-title">Development</div>
+        <div class="skill-card-title">Development Languages</div>
         <div class="skill-item">
-          <div class="skill-item-top"><span class="skill-item-name">JavaScript</span><span class="skill-item-pct">80%</span></div>
+          <div class="skill-item-top"><span class="skill-item-name">JavaScript & Apps Script</span><span class="skill-item-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-top"><span class="skill-item-name">HTML / PHP / CSS</span><span class="skill-item-pct">80%</span></div>
           <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:80%"></div></div>
         </div>
         <div class="skill-item">
-          <div class="skill-item-top"><span class="skill-item-name">HTML / CSS</span><span class="skill-item-pct">85%</span></div>
-          <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-item-top"><span class="skill-item-name">Python (Pandas)</span><span class="skill-item-pct">70%</span></div>
-          <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:70%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-item-top"><span class="skill-item-name">Google Apps Script</span><span class="skill-item-pct">75%</span></div>
+          <div class="skill-item-top"><span class="skill-item-name">Python / C++</span><span class="skill-item-pct">75%</span></div>
           <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:75%"></div></div>
         </div>
       </div>
-      <!-- Tools -->
+      <!-- Software -->
       <div class="glass-card skill-card-new reveal reveal-delay-3">
         <div class="skill-icon">🛠️</div>
-        <div class="skill-card-title">Tools & Methods</div>
+        <div class="skill-card-title">Software & Productivity</div>
         <div class="skill-item">
-          <div class="skill-item-top"><span class="skill-item-name">Excel Pivot & Analytics</span><span class="skill-item-pct">80%</span></div>
-          <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:80%"></div></div>
+          <div class="skill-item-top"><span class="skill-item-name">Excel Pivot & Data Analysis</span><span class="skill-item-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:90%"></div></div>
         </div>
         <div class="skill-item">
           <div class="skill-item-top"><span class="skill-item-name">Technical Documentation</span><span class="skill-item-pct">90%</span></div>
           <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:90%"></div></div>
         </div>
         <div class="skill-item">
-          <div class="skill-item-top"><span class="skill-item-name">Rapid Troubleshooting</span><span class="skill-item-pct">92%</span></div>
-          <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:92%"></div></div>
+          <div class="skill-item-top"><span class="skill-item-name">Photoshop / Corel Draw</span><span class="skill-item-pct">75%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="--target-width:75%"></div></div>
         </div>
       </div>
     </div>
@@ -1040,16 +1147,15 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label">Portfolio</div>
-      <h2 class="section-title">Things I've built</h2>
+      <h2 class="section-title">Things I've Built</h2>
       <div class="divider"></div>
     </div>
 
     <!-- Filter -->
     <div class="project-filter reveal">
       <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="automation">Automation</button>
-      <button class="filter-btn" data-filter="game">Games</button>
-      <button class="filter-btn" data-filter="experiment">Experiments</button>
+      <button class="filter-btn" data-filter="automation">Automation & Tools</button>
+      <button class="filter-btn" data-filter="web">Web Development</button>
     </div>
 
     <div class="projects-grid">
@@ -1058,170 +1164,63 @@
         <div class="project-thumb">
           <span class="project-thumb-emoji">🎫</span>
           <div class="project-thumb-overlay">
-            <a href="https://xirecentxz.github.io/helpdesk-ticketing/" target="_blank" class="project-overlay-btn">Live Demo ↗</a>
+            <a href="https://github.com/xirecentxz/helpdesk-ticketing" target="_blank" class="project-overlay-btn">View Code ↗</a>
           </div>
         </div>
         <div class="project-body">
           <div class="project-tags">
             <span class="project-tag tag-auto">Automation</span>
-            <span class="project-tag tag-auto">Google Sheets API</span>
+            <span class="project-tag tag-auto">API Integration</span>
           </div>
           <h3 class="project-title-new">Helpdesk Ticketing System</h3>
-          <p class="project-desc">Built a bridge between IT Support and Web Dev — a ticket reporting system powered by Google Sheets API that turns chaos into a structured, trackable workflow.</p>
+          <p class="project-desc">Designed a technical reporting system integrated with Google Sheets API. Streamlines hardware failure logging and support queue tracking seamlessly.</p>
           <div class="project-meta">
-            <div class="project-status"><span class="dot"></span> Active</div>
-            <a href="https://xirecentxz.github.io/helpdesk-ticketing/" target="_blank" class="project-arrow">Analyze Case →</a>
+            <div class="project-status"><span class="dot"></span> Active Deployment</div>
+            <a href="https://github.com/xirecentxz/helpdesk-ticketing" target="_blank" class="project-arrow">Details →</a>
           </div>
         </div>
       </div>
 
       <!-- Project 2 -->
-      <div class="glass-card project-card-new reveal reveal-delay-1" data-category="game">
+      <div class="glass-card project-card-new reveal reveal-delay-1" data-category="automation">
         <div class="project-thumb" style="background:linear-gradient(135deg,rgba(129,140,248,0.1),rgba(167,139,250,0.15))">
-          <span class="project-thumb-emoji">⚔️</span>
+          <span class="project-thumb-emoji">📊</span>
           <div class="project-thumb-overlay">
-            <a href="https://xirecentxz.github.io/onmyouji-game-v2/" target="_blank" class="project-overlay-btn">Play Now ↗</a>
+            <a href="https://github.com/xirecentxz/contact-cleaner" target="_blank" class="project-overlay-btn">View Repo ↗</a>
           </div>
         </div>
         <div class="project-body">
           <div class="project-tags">
-            <span class="project-tag tag-game">JS Game</span>
-            <span class="project-tag tag-game">RPG Logic</span>
+            <span class="project-tag tag-auto">JavaScript Tools</span>
+            <span class="project-tag tag-auto">Data Processing</span>
           </div>
-          <h3 class="project-title-new">Onmyouji Game V2</h3>
-          <p class="project-desc">RPG game implementing clean state management architecture. V2 brings refined battle logic, better UI flow, and dramatically cleaner code structure.</p>
+          <h3 class="project-title-new">Contact Cleaner Utility</h3>
+          <p class="project-desc">Engineered an intelligent JavaScript automation engine to read dynamic file headers and auto-format international mobile structures for bulk data sheets.</p>
           <div class="project-meta">
             <div class="project-status"><span class="dot"></span> Stable</div>
-            <a href="https://xirecentxz.github.io/onmyouji-game-v2/" target="_blank" class="project-arrow">Play Game →</a>
+            <a href="https://github.com/xirecentxz/contact-cleaner" target="_blank" class="project-arrow">Details →</a>
           </div>
         </div>
       </div>
 
       <!-- Project 3 -->
-      <div class="glass-card project-card-new reveal reveal-delay-2" data-category="experiment">
+      <div class="glass-card project-card-new reveal reveal-delay-2" data-category="web">
         <div class="project-thumb" style="background:linear-gradient(135deg,rgba(52,211,153,0.1),rgba(16,185,129,0.12))">
-          <span class="project-thumb-emoji">✂️</span>
+          <span class="project-thumb-emoji">🌐</span>
           <div class="project-thumb-overlay">
-            <a href="https://xirecentxz.github.io/janken-game/" target="_blank" class="project-overlay-btn">View Project ↗</a>
+            <a href="https://github.com/xirecentxz/client-web-architecture" target="_blank" class="project-overlay-btn">View Project ↗</a>
           </div>
         </div>
         <div class="project-body">
           <div class="project-tags">
-            <span class="project-tag tag-exp">Experiment</span>
-            <span class="project-tag tag-exp">Vanilla JS</span>
+            <span class="project-tag tag-web">Front-End</span>
+            <span class="project-tag tag-web">HTML / PHP</span>
           </div>
-          <h3 class="project-title-new">Janken Game</h3>
-          <p class="project-desc">Clean Rock-Paper-Scissors logic experiment. Sometimes the simplest implementations teach the most about state, randomness, and user feedback loops.</p>
+          <h3 class="project-title-new">Custom Client Web Architecture</h3>
+          <p class="project-desc">Constructed responsive front-end site systems using clean HTML frameworks and PHP modular rendering optimized according to personalized business criteria.</p>
           <div class="project-meta">
-            <div class="project-status" style="color:#60a5fa;"><span class="dot" style="background:#60a5fa;animation:none;"></span> Complete</div>
-            <a href="https://xirecentxz.github.io/janken-game/" target="_blank" class="project-arrow">View Repo →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TESTIMONIALS ===== -->
-<section id="testimonials">
-  <div class="container">
-    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
-      <div class="section-label">Testimonials</div>
-      <h2 class="section-title">What people say</h2>
-      <div class="divider" style="margin:12px auto 0;"></div>
-    </div>
-  </div>
-
-  <!-- Infinite scroll testimonials -->
-  <div class="testimonial-track-wrap" style="margin-top:48px;">
-    <div class="testimonial-track" id="testimonialTrack">
-      <!-- Set 1 -->
-      <div class="glass-card testimonial-card">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">Adhimukti resolved our network outage in under two hours — a problem that had been plaguing us for days. He doesn't just fix things, he explains why they broke.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">RH</div>
-          <div>
-            <div class="testimonial-name">Rizal Hartono</div>
-            <div class="testimonial-role">IT Manager, PT Surya Digital</div>
-          </div>
-        </div>
-      </div>
-      <div class="glass-card testimonial-card">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">The helpdesk system he built cut our ticket response time by 40%. It's clever, maintainable, and the team adopted it without any friction whatsoever.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#a78bfa,#818cf8)">DS</div>
-          <div>
-            <div class="testimonial-name">Dewi Septiani</div>
-            <div class="testimonial-role">Operations Lead, Startup Surabaya</div>
-          </div>
-        </div>
-      </div>
-      <div class="glass-card testimonial-card">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">Most IT guys hand you a ticket number and disappear. Adhimukti actually sits with you until the problem is gone. That kind of ownership is rare.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#34d399,#059669)">FP</div>
-          <div>
-            <div class="testimonial-name">Farid Pratama</div>
-            <div class="testimonial-role">Department Head, CV Maju Bersama</div>
-          </div>
-        </div>
-      </div>
-      <div class="glass-card testimonial-card">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">His documentation is the cleanest I've ever seen from a junior-level tech. Every handoff is seamless because the knowledge is actually written down correctly.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706)">AN</div>
-          <div>
-            <div class="testimonial-name">Agus Nugroho</div>
-            <div class="testimonial-role">Senior Sysadmin, PT Teknindo</div>
-          </div>
-        </div>
-      </div>
-      <!-- Set 2 (duplicate for infinite loop) -->
-      <div class="glass-card testimonial-card">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">Adhimukti resolved our network outage in under two hours — a problem that had been plaguing us for days. He doesn't just fix things, he explains why they broke.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">RH</div>
-          <div>
-            <div class="testimonial-name">Rizal Hartono</div>
-            <div class="testimonial-role">IT Manager, PT Surya Digital</div>
-          </div>
-        </div>
-      </div>
-      <div class="glass-card testimonial-card">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">The helpdesk system he built cut our ticket response time by 40%. It's clever, maintainable, and the team adopted it without any friction whatsoever.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#a78bfa,#818cf8)">DS</div>
-          <div>
-            <div class="testimonial-name">Dewi Septiani</div>
-            <div class="testimonial-role">Operations Lead, Startup Surabaya</div>
-          </div>
-        </div>
-      </div>
-      <div class="glass-card testimonial-card">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">Most IT guys hand you a ticket number and disappear. Adhimukti actually sits with you until the problem is gone. That kind of ownership is rare.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#34d399,#059669)">FP</div>
-          <div>
-            <div class="testimonial-name">Farid Pratama</div>
-            <div class="testimonial-role">Department Head, CV Maju Bersama</div>
-          </div>
-        </div>
-      </div>
-      <div class="glass-card testimonial-card">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">His documentation is the cleanest I've ever seen from a junior-level tech. Every handoff is seamless because the knowledge is actually written down correctly.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706)">AN</div>
-          <div>
-            <div class="testimonial-name">Agus Nugroho</div>
-            <div class="testimonial-role">Senior Sysadmin, PT Teknindo</div>
+            <div class="project-status" style="color:#60a5fa;"><span class="dot" style="background:#60a5fa;animation:none;"></span> Completed</div>
+            <a href="https://github.com/xirecentxz/client-web-architecture" target="_blank" class="project-arrow">Details →</a>
           </div>
         </div>
       </div>
@@ -1234,40 +1233,36 @@
   <div class="container">
     <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
       <div class="section-label">Contact</div>
-      <h2 class="section-title">Let's build something</h2>
-      <p class="section-sub" style="margin:12px auto 0;">Got a system that needs fixing, a workflow that needs automating, or an idea that needs building? I'm listening.</p>
+      <h2 class="section-title">Let's Establish Connection</h2>
+      <p class="section-sub" style="margin:12px auto 0;">Have a system optimization bottleneck, workflow automation challenge, or developer assignment? Let's discuss solutions.</p>
     </div>
 
     <div class="contact-grid">
       <!-- Left: contact info -->
       <div class="reveal">
         <div class="contact-links">
-          <a href="https://wa.me/6281234567890" target="_blank" class="glass-card contact-link-item">
+          <!-- WhatsApp Link -->
+          <a href="https://wa.me/6285649553472" target="_blank" class="glass-card contact-link-item">
             <div class="contact-link-icon">📱</div>
             <div class="contact-link-info">
               <div class="label">WhatsApp</div>
-              <div class="value">+62 812 3456 7890</div>
+              <div class="value">Send Secure Message</div>
             </div>
           </a>
-          <a href="mailto:adhimukti.yusuf@email.com" class="glass-card contact-link-item">
+          <!-- Email Link -->
+          <a href="mailto:adhimukti.yusuf@gmail.com" class="glass-card contact-link-item">
             <div class="contact-link-icon">📧</div>
             <div class="contact-link-info">
-              <div class="label">Email</div>
-              <div class="value">adhimukti.yusuf@email.com</div>
+              <div class="label">Email Address</div>
+              <div class="value">adhimukti.yusuf@gmail.com</div>
             </div>
           </a>
+          <!-- GitHub Link -->
           <a href="https://github.com/xirecentxz" target="_blank" class="glass-card contact-link-item">
             <div class="contact-link-icon">💻</div>
             <div class="contact-link-info">
-              <div class="label">GitHub</div>
-              <div class="value">@xirecentxz</div>
-            </div>
-          </a>
-          <a href="https://linkedin.com" target="_blank" class="glass-card contact-link-item">
-            <div class="contact-link-icon">🔗</div>
-            <div class="contact-link-info">
-              <div class="label">LinkedIn</div>
-              <div class="value">Connect with me</div>
+              <div class="label">GitHub Profile</div>
+              <div class="value">github.com/xirecentxz</div>
             </div>
           </a>
         </div>
@@ -1288,7 +1283,7 @@
           </div>
           <div class="form-group">
             <label class="form-label" for="message">Message</label>
-            <textarea class="form-textarea" id="message" placeholder="Tell me about your project or problem..."></textarea>
+            <textarea class="form-textarea" id="message" placeholder="Describe the deployment task or software requirement..."></textarea>
             <span class="form-error" id="messageError">Please write a message.</span>
           </div>
           <button class="btn-primary" id="sendBtn" style="width:100%;" onclick="handleFormSubmit()">
@@ -1305,7 +1300,7 @@
   <div class="container footer-inner">
     <div class="footer-left">
       <span style="color:var(--accent);font-family:var(--font-display);font-weight:800;">AY.</span>
-      &nbsp;© 2025 Adhimukti Yusuf. All rights reserved.
+      &nbsp;© 2026 Adhimukti Yusuf. All rights reserved.
     </div>
     <div class="footer-links">
       <a href="#hero">Back to top ↑</a>
@@ -1318,7 +1313,6 @@
 <div id="toast">✅ Message sent! I'll get back to you soon.</div>
 
 <!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
   /* ===== LOADER ===== */
   window.addEventListener('load', () => {
@@ -1331,10 +1325,10 @@
   window.addEventListener('load', () => {
     new Typed('#typed', {
       strings: [
-        'IT Infrastructure Engineer.',
-        'Automation Builder.',
-        'Problem Solver at Scale.',
-        'Creative Technologist.'
+        'IT Support Specialist.',
+        'Workflow Automation Builder.',
+        'Infrastructure Engineer.',
+        'Front-End Web Developer.'
       ],
       typeSpeed: 55,
       backSpeed: 30,
@@ -1364,7 +1358,7 @@
   }
   animateRing();
 
-  document.querySelectorAll('a, button, .glass-card, .project-card-new, .filter-btn').forEach(el => {
+  document.querySelectorAll('a, button, .glass-card, .project-card-new, .filter-btn, .form-input, .form-textarea').forEach(el => {
     el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
     el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
   });
@@ -1464,39 +1458,68 @@
   });
 
   /* ===== FORM VALIDATION ===== */
-  function handleFormSubmit() {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-    let valid = true;
-
-    const nameErr = document.getElementById('nameError');
-    const emailErr = document.getElementById('emailError');
-    const msgErr = document.getElementById('messageError');
-
-    nameErr.classList.remove('visible');
-    emailErr.classList.remove('visible');
-    msgErr.classList.remove('visible');
-
-    if (!name) { nameErr.classList.add('visible'); valid = false; }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !emailRegex.test(email)) { emailErr.classList.add('visible'); valid = false; }
-    if (!message) { msgErr.classList.add('visible'); valid = false; }
-
-    if (valid) {
-      const btn = document.getElementById('sendBtn');
-      btn.textContent = 'Sending...';
-      btn.style.opacity = '0.7';
-      setTimeout(() => {
-        btn.textContent = 'Send Message ✉️';
-        btn.style.opacity = '1';
-        document.getElementById('name').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('message').value = '';
-        showToast();
-      }, 1200);
+/* ===== FORM SUBMIT WITH FORMSPREE ===== */
+    function handleFormSubmit() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      let valid = true;
+    
+      const nameErr = document.getElementById('nameError');
+      const emailErr = document.getElementById('emailError');
+      const msgErr = document.getElementById('messageError');
+    
+      // Reset error
+      nameErr.classList.remove('visible');
+      emailErr.classList.remove('visible');
+      msgErr.classList.remove('visible');
+    
+      // Validasi
+      if (!name) { nameErr.classList.add('visible'); valid = false; }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) { emailErr.classList.add('visible'); valid = false; }
+      if (!message) { msgErr.classList.add('visible'); valid = false; }
+    
+      if (valid) {
+        const btn = document.getElementById('sendBtn');
+        const originalText = btn.textContent;
+        btn.textContent = '⏳ Sending...';
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+    
+        fetch('https://formspree.io/f/xpqvweoa', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ 
+            name: name,
+            email: email,
+            message: message
+          })
+        })
+        .then(response => {
+          if (response.ok) {
+            // Reset form
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+            showToast('✅ Pesan terkirim! Saya akan segera merespon.');
+          } else {
+            showToast('❌ Gagal mengirim. Silakan hubungi via WhatsApp atau email langsung.');
+          }
+        })
+        .catch(() => {
+          showToast('❌ Gagal mengirim. Silakan hubungi via WhatsApp atau email langsung.');
+        })
+        .finally(() => {
+          btn.textContent = originalText;
+          btn.disabled = false;
+          btn.style.opacity = '1';
+        });
+      }
     }
-  }
 
   /* Real-time validation */
   ['name','email','message'].forEach(id => {
@@ -1506,10 +1529,13 @@
   });
 
   /* ===== TOAST ===== */
-  function showToast() {
+  function showToast(message) {
     const toast = document.getElementById('toast');
+    toast.textContent = message || '✅ Message sent! I\'ll get back to you soon.';
     toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3500);
+    // Reset toast setelah 4 detik
+    clearTimeout(toast._timeout);
+    toast._timeout = setTimeout(() => toast.classList.remove('show'), 4000);
   }
 </script>
 </body>
